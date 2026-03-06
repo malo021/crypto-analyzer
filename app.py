@@ -71,7 +71,7 @@ def fetch_and_store():
         print(f"Collection error: {e}")
 
 def run_scheduler():
-    schedule.every(1).hours.do(fetch_and_store)
+    schedule.every(15).minutes.do(fetch_and_store)
     while True:
         schedule.run_pending()
         time.sleep(60)
@@ -121,3 +121,4 @@ if __name__ == "__main__":
 
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port, debug=False)
+
